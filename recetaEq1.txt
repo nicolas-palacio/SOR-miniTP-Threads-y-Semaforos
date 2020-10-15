@@ -1,0 +1,8 @@
+Cortar|Ajo|Cebolla|Perejil
+Cortar otros ingredientes|Lechuga|Tomate
+Mezclar|Carne
+Salar|Mezcla
+Armar medallones|Mezcla
+Planchar|Medallones
+Hornear|Panes
+Armar hambuguesas|Medallones
