@@ -24,9 +24,9 @@ Hilos definidos en el main: equipo1 , equipo2, equipo3.
 
 Cada hilo apunta a la función *ejecutarReceta()*.
 
-- *ejecutarReceta() :*  crea y setea los hilos y semaforos necesarios para la ejecucion. Cada hilo creado aqui representa los pasos de dicha receta y apuntan a sus funciones correspondientes, por ejemplo el hilo del paso 1, apunta a la funcion Cortar(), que es el primer paso de la receta. También dentro de esta función, se llama a leerReceta(), que es la encargada de leer el archivo de la receta y setear los pasos en los respectivos hilos.
+- *ejecutarReceta() :*  crea y setea los hilos y semáforos necesarios para la ejecución. Cada hilo creado aqui representa los pasos de dicha receta y apuntan a sus funciones correspondientes, por ejemplo el hilo del paso 1, apunta a la función Cortar(), que es el primer paso de la receta. También dentro de esta función, se llama a leerReceta(), que es la encargada de leer el archivo de la receta y setear los pasos en los respectivos hilos.
 
-- *cortar() , mezclar() , salar() , armarMedallones(), planchar(), hornearPanes(), cortarLechugayTomate(), armarHamburguesa()* :  cada una de estas funciones representa un paso de la receta, dentro de cada una se hace una llamada a imprimirAccion() en la que ademas de imprimir la acción pasada por parámetro también la escribe en un archivo(con ayuda del mutex "escribir" para lograr que una acción de cada equipo escriba a la vez). En cada función mencionada, con ayuda de los semaforos, se logra sincronizar los pasos para ejecutarlos el orden que plantea la receta, y con ayuda de los mutex, solo un equipo a la vez podrá acceder a un elemento de cocina (salero, horno o plancha). 
+- *cortar() , mezclar() , salar() , armarMedallones(), planchar(), hornearPanes(), cortarLechugayTomate(), armarHamburguesa()* :  cada una de estas funciones representa un paso de la receta, dentro de cada una se hace una llamada a imprimirAccion() en la que además de imprimir la acción pasada por parámetro también la escribe en un archivo(con ayuda del mutex "escribir" para lograr que una acción de cada equipo escriba a la vez). En cada función mencionada, con ayuda de los semáforos, se logra sincronizar los pasos para ejecutarlos en el orden que plantea la receta, y con ayuda de los mutex, solo un equipo a la vez podrá acceder a un elemento de cocina (salero, horno o plancha). 
   En cada función que representa los pasos se pregunta si ya hubo un ganador, de ser así no imprimirá la acción del paso y eliminará el hilo. La encargada de definir al equipo ganador es la función *armarHamburguesa() *, la cual cambia la variable global entera *algunEquipoGano* a 1.
 
 
@@ -38,6 +38,7 @@ Cada hilo apunta a la función *ejecutarReceta()*.
 **Semáforos:** sem_mezclar,sem_armarMedallones,sem_salar,sem_planchar,   sem_hornear,sem_armarHambuguesa,sem_panesListos,sem_lecuhgaytomate.
 
 **Semáforos(mutex):** salero,horno,plancha,escribir,equipoTermino.
+*P()=wait()  V()= signal()*
 
 ![pruebaEscritorio](https://user-images.githubusercontent.com/69064260/96062095-36e1f680-0e6b-11eb-9330-f41f8720e9c2.png)
 
