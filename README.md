@@ -39,7 +39,7 @@ Cada hilo apunta a la función *ejecutarReceta()*.
 
 **Semáforos(mutex):** salero,horno,plancha,escribir,equipoTermino.
 
-*P()=wait()  V()= signal()*
+*P()=wait()   |V()= signal()*
 
 ![pruebaEscritorio](https://user-images.githubusercontent.com/69064260/96062095-36e1f680-0e6b-11eb-9330-f41f8720e9c2.png)
 
